@@ -1,4 +1,4 @@
-const listadoPalabras = ["vuestros", "semejante", "pague", "molestes", "cultura", "comino", "antecedentes", "tendriamos", "representante", "prestado", "posesivo", "oir", "nubes", "meterte", "guantes", "esperabas", "enseña", "encontrarme", "consejos", "regreses"];
+const listadoPalabras = ["vuestros", "semejante", "pague", "molestes", "cultura", "comino"];
 
 const munheco = {
     0: document.getElementsByClassName('base-horca'),
@@ -14,6 +14,7 @@ const munheco = {
 }
 
 const btnIniciar = document.getElementById('btnIniciar');
+const btnHome = document.getElementById('btnHome');
 
 let palabraSecreta;
 let erroresPermitidos = Object.keys(munheco).length;
@@ -25,6 +26,8 @@ const letrasEncontradasContenedor = document.getElementById('letrasEncontradas')
 const letrasUsadasContenedor = document.getElementById('letrasUsadas');
 document.getElementById('letrasUsadas').style.display = 'none'
 document.getElementById('figure-container').style.display = 'none'
+btnHome.style.display = 'none';
+
 
 // FUNCIONES 
 
@@ -42,6 +45,13 @@ const mostrarPalabraSecreta = () => {
         elementoLetra.classList.add('hidden-letra');
         letrasEncontradasContenedor.appendChild(elementoLetra);
     });
+}
+
+const mostrarPalabraFinal = () => {
+    let palabraElemento = document.getElementsByClassName('letra');
+    for (let i = 0; i < palabraElemento.length; i++) {
+        palabraElemento[i].classList.remove('hidden-letra');
+    }
 }
 
 const letraPresionada = letra => {
@@ -72,7 +82,11 @@ const letraIncorrecta = () => {
     dibujarMuneco(errores);
     errores++;
 
-    if (errores === erroresPermitidos) terminarJuego();
+    if (errores === erroresPermitidos) {
+        mostrarPalabraFinal();
+        mostrarModalPerdiste();
+        terminarJuego();
+    }
 
 }
 
@@ -87,14 +101,17 @@ const letraCorrecta = (letra) => {
             aciertos++;
         }
     }
-    if (aciertos === palabraSecreta.length) terminarJuego();
-
+    if (aciertos === palabraSecreta.length) {
+        terminarJuego();
+        mostrarModal();
+    }
 }
 
 const terminarJuego = () => {
     document.removeEventListener('keydown', letraPresionada);
     document.getElementById('letrasUsadas').style.display = 'none'
     document.getElementById('btn-contenedor').style.display = 'flex'
+    btnHome.style.display = 'block';
 }
 
 const dibujarMuneco = (cantidadErrores) => {
@@ -128,6 +145,7 @@ const iniciarJuego = () => {
     document.getElementById('container').style.borderTopRightRadius = '0'
     document.getElementById('letrasUsadas').style.display = 'flex'
     document.getElementById('btn-contenedor').style.display = 'none'
+    btnPalabras.style.display = 'none'
 
     limpiarMuneco();
     generarPalabraSecreta();
@@ -136,3 +154,5 @@ const iniciarJuego = () => {
 }
 
 btnIniciar.addEventListener('click', iniciarJuego);
+
+btnHome.addEventListener('click', () => window.location.reload());
