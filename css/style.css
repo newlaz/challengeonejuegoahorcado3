@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&display=swap');
+
+:root {
+    --darker-color: #2C3333;
+    --dark-color: #395B64;
+    --light-color: #2666CF;
+    --lighter-color: #F5F2E7;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--darker-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.title-container {
+    height: 7%;
+    box-sizing: border-box;
+}
+
+.title {
+    color: var(--lighter-color);
+    font-weight: 600;
+}
+
+.game-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 93%;
+    width: 100%;
+}
+
+.figure-container {
+    padding-top: 1em;
+    display: flex;
+    justify-content: center;
+    height: 60%;
+    width: 50%;
+    background-color: var(--lighter-color);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    position: relative;
+}
+
+.advertencia {
+    font-size: 12px;
+    margin: 0 15px;
+    opacity: 0.7;
+}
+
+.cabeza {
+    width: 80px;
+    height: 80px;
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+
+.cuerpo {
+    width: 10px;
+    height: 150px;
+    background-color: var(--dark-color);
+    position: absolute;
+    left: calc(50% + 35px);
+    top: calc(20% + 79px);
+}
+
+.brazo {
+    width: 10px;
+    height: 75px;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: calc(20% + 79px);
+}
+
+.brazo-izquierda {
+    left: calc(50% + 15px);
+    rotate: 30deg;
+}
+
+.brazo-derecha {
+    left: calc(50% + 54px);
+    rotate: -30deg;
+}
+
+.pierna {
+    width: 10px;
+    height: 75px;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: calc(20% + 79px + 143px);
+}
+
+.pierna-izquierda {
+    left: calc(50% + 15px);
+    rotate: 30deg;
+}
+
+.pierna-derecha {
+    left: calc(50% + 54px);
+    rotate: -30deg;
+}
+
+.pilar-horca {
+    width: 25px;
+    height: 70%;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.soga {
+    width: 12px;
+    height: 64px;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: 10%;
+    left: calc(50% + 33px);
+}
+
+.base-horca {
+    height: 25px;
+    width: 25%;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: calc(10% + 70%);
+    left: calc(25% - 5%);
+}
+
+.polea-horca {
+    height: 25px;
+    width: 60%;
+    background-color: var(--dark-color);
+    position: absolute;
+    top: 10%;
+    left: calc(50% - 30%);
+}
+
+.container {
+    min-height: 10%;
+    width: 50%;
+    padding: 1em;
+    background-color: var(--dark-color);
+    box-sizing: border-box;
+    border-radius: 1em;
+}
+
+.letras-contenedor {
+    min-height: 5em;
+    color: var(--lighter-color);
+    gap: 0.5em;
+}
+
+.btn-contenedor {
+    min-height: 5em;
+}
+
+.btn {
+    padding: 0.8em;
+    width: 80%;
+    background-color: var(--lighter-color);
+    border: none;
+    border-radius: 1em;
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: 0.7s transform ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(105%);
+}
+
+.btn:active {
+    opacity: 0.7;
+}
+
+.letra {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    border-bottom: var(--lighter-color) 2px solid;
+    width: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden-letra {
+    color: transparent;
+}
+
+.hidden-letra::selection {
+    background-color: transparent;
+    color: transparent;
+}
+
+.show {
+    display: block;
+}
