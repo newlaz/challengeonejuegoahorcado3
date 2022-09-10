@@ -4,6 +4,7 @@ const modalAgregarPalabras = document.getElementById('modalAgregarPalabras');
 const btnCerrarModalGanaste = document.getElementById('btnCerrarModalGanaste');
 const btnCerrarModalPerdiste = document.getElementById('btnCerrarModalPerdiste');
 const btnCerrarModalPalabras = document.getElementById('btnCerrarModalPalabras');
+
 const mostrarModalGanaste = () => {
     modalGanaste.showModal();
 }
