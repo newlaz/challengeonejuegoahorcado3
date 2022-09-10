@@ -102,8 +102,8 @@ const letraCorrecta = (letra) => {
         }
     }
     if (aciertos === palabraSecreta.length) {
-        terminarJuego();
         mostrarModal();
+        terminarJuego();
     }
 }
 
